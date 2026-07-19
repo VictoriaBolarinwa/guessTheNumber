@@ -39,15 +39,18 @@
 </body>
 </html>
 <script>
-    let theResult = document.getElementById("displayRightNumber")
-
+    
 
 
     function guessIt() {
         let theRightGuess = Math.floor(Math.random() *7 ) -3;
-        console.log(theRightGuess);
         
         let guessedNumber = Number(document.getElementById("guessedNumber").value)
+
+        if (guessedNumber < -3 || guessedNumber > 3) {
+        alert("Please enter a number between -3 and 3")
+        }
+
         if (theRightGuess === guessedNumber) {
             displayRightNumber.innerHTML = `Yaaay! You're right! The answer is ${theRightGuess}. Give it another try!`
             luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++
@@ -59,4 +62,5 @@
             numberOfGuesses.innerHTML++
         }
     }
+
 </script>

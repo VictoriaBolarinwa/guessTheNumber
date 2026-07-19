@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: goldenrod;
+        margin: 0;
+        padding: 50px;
+        text-align: center;
+       } 
+
+    </style>
+</head>
+<body>
+    <div class="guessIt">
+        <h1>Input a number from "-3" to "3" </h1>
+        <input type="number" id="guessedNumber">
+        <button onclick="guessIt()"> TAKE A WILD GUESS! </button>
+        <h1 id="displayRightNumber">Hol' up! We're about to find out.</h1> 
+        
+        <div>
+            <h3> Your Lucky Counter: </h3>  
+            <h3 id="luckyCounter"> 0 </h3> 
+            <h3>Number of Wrong Guesses:</h3>
+            <h3 id="numberOfWrongGuesses"> 0 </h3>
+            <h3> Number of Total Guesses:</h3>
+            <h3 id="numberOfGuesses"> 0 </h3>
+        </div>
+
+    </div>
+
+    <div>
+        <h2>Each correct guess earns you 5 points on your lucky counter!</h2>
+    </div>
+</body>
+</html>
+<script>
+    let theResult = document.getElementById("displayRightNumber")
+
+
+
+    function guessIt() {
+        let theRightGuess = Math.ceil(Math.random() * 10)
+        console.log(theRightGuess);
+        
+        let guessedNumber = Number(document.getElementById("guessedNumber").value)
+        if (theRightGuess === guessedNumber) {
+            displayRightNumber.innerHTML = `Yaaay! You're right! The answer is ${theRightGuess} Give it another try!`
+            luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++
+            numberOfGuesses.innerHTML++
+            
+        } else {
+            displayRightNumber.innerHTML = `Ouch! Try again`
+            numberOfWrongGuesses.innerHTML++
+            numberOfGuesses.innerHTML++
+        }
+    }
+</script>

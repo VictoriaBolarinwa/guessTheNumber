@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #ffd54f, #ffb300);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #222;
+    }
+
+    .guessIt {
+        background: white;
+        width: 450px;
+        max-width: 90%;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .topDisplay {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    }
+
+    input {
+        width: 100px;
+        padding: 12px;
+        font-size: 1.2rem;
+        text-align: center;
+        border: 2px solid goldenrod;
+        border-radius: 10px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: orange;
+        box-shadow: 0 0 10px rgba(255,165,0,.4);
+    }
+
+    button {
+        margin-left: 10px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        background: #ff9800;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    button:hover {
+        background: #f57c00;
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        transform: scale(.96);
+    }
+
+    #displayRightNumber {
+        margin-top: 25px;
+        min-height: 60px;
+        color: #444;
+    }
+
+    #luckyCounter,
+    #numberOfWrongGuesses,
+    #numberOfGuesses {
+        background: #fff8e1;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        color: #d35400;
+    }
+
+    h2 {
+        margin-top: 20px;
+        color: white;
+    }
+    .stats {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff8e1;
+        padding: 15px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+    }
+
+    .stat span:last-child {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #d35400;
+    }
+    </style>
+</head>
+<body>
+    <div class="guessIt">
+        <h1>Input a number from "-3" to "3" </h1>
+        <div class="topDisplay">
+            <input type="number" id="guessedNumber">
+            <button onclick="guessIt()">TAKE A WILD GUESS!</button>
+        </div>
+
+        <h1 id="displayRightNumber">Hol' up! We're about to find out.</h1> 
+        
+
+        <div class="stats">
+            <div class="stat">
+                <span>Lucky Counter</span>
+                <span id="luckyCounter">0</span>
+            </div>
+
+            <div class="stat">
+                <span>Wrong Guesses</span>
+                <span id="numberOfWrongGuesses">0</span>
+            </div>
+
+            <div class="stat">
+                <span>Total Guesses</span>
+                <span id="numberOfGuesses">0</span>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div>
+        <h2>Each correct guess earns you 5 points on your lucky counter!</h2>
+    </div>
+
+
+
+</body>
+</html>
+<script>
+    
+
+
+    function guessIt() {
+        let theRightGuess = Math.floor(Math.random() *7 ) -3;
+        
+        let guessedNumber = Number(document.getElementById("guessedNumber").value)
+
+        if (guessedNumber < -3 || guessedNumber > 3) {
+            alert("Please enter a number between -3 and 3")
+        }
+
+        if (guessedNumber == '') {
+            alert("Please input a number")
+        }
+
+        if (theRightGuess === guessedNumber) {
+            displayRightNumber.innerHTML = `Yaaay! You're right! The answer is ${theRightGuess}. Let's go again!`
+            luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++
+            numberOfGuesses.innerHTML++
+            
+        } else {
+            displayRightNumber.innerHTML = `Ouch! ${guessedNumber} is incorrect. ${theRightGuess} is the right number. Give it another try!`
+            numberOfWrongGuesses.innerHTML++
+            numberOfGuesses.innerHTML++
+        }
+    }
+
+    
+
+</script>

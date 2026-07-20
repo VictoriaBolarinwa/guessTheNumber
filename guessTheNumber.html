@@ -52,15 +52,17 @@
         }
 
         if (theRightGuess === guessedNumber) {
-            displayRightNumber.innerHTML = `Yaaay! You're right! The answer is ${theRightGuess}. Give it another try!`
+            displayRightNumber.innerHTML = `Yaaay! You're right! The answer is ${theRightGuess}. Let's go again!`
             luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++ + luckyCounter.innerHTML++
             numberOfGuesses.innerHTML++
             
         } else {
-            displayRightNumber.innerHTML = `Ouch! Try again`
+            displayRightNumber.innerHTML = `Ouch! ${guessedNumber} is incorrect. ${theRightGuess} is the right number. Give it another try!`
             numberOfWrongGuesses.innerHTML++
             numberOfGuesses.innerHTML++
         }
     }
 
-</script>
+    
+
+</script>>
